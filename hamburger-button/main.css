@@ -1,0 +1,81 @@
+*,
+*::before,
+*::after {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+}
+
+ul {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+.container {
+	position: relative;
+}
+
+.btn-hamburger {
+	display: block;
+	padding-block: 2px;
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+}
+
+@media (max-width: 1000px) {
+	.btn-hamburger {
+		display: none;
+	}
+}
+
+.bar {
+	display: block;
+	background-color: black;
+	width: 22px;
+	height: 2px;
+	border-radius: 6px;
+}
+
+.bar--top {
+	transform-origin: bottom right;
+}
+
+.bar--top-animation {
+	transform: rotate(-45deg) translateY(-3px);
+}
+
+
+.bar--mid {
+	margin-block: 4px;
+}
+
+.bar--mid-animation {
+	transform: scale(0);
+}
+
+.bar--bot {
+	transform-origin: top right;
+}
+
+.bar--bot-animation {
+	transform: rotate(45deg) translateY(3px);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	.bar--top, .bar--bot {
+		transition-timing-function: ease-out;
+		transition-duration: 200ms;
+		transition-property: opacity, transform;
+	}
+}
